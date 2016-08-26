@@ -1,0 +1,7 @@
+
+[global]
+mode=FAST_RUN
+device = gpu
+
+[nvcc]
+fastmath = True

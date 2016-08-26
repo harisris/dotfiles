@@ -1,0 +1,233 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s1:/*,mb:*,ex:*/,://
+setlocal commentstring=//\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'go'
+setlocal filetype=go
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=indent
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=cq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GoIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,<:>,0=},0=)
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=8
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!airline#statusline(1)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'go'
+setlocal syntax=go
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+4
+normal! zo
+32
+normal! zo
+45
+normal! zo
+53
+normal! zo
+61
+normal! zo
+69
+normal! zo
+78
+normal! zo
+80
+normal! zo
+94
+normal! zo
+102
+normal! zo
+116
+normal! zo
+118
+normal! zo
+136
+normal! zo
+139
+normal! zo
+142
+normal! zo
+145
+normal! zo
+151
+normal! zo
+154
+normal! zo
+162
+normal! zo
+166
+normal! zo
+169
+normal! zo
+177
+normal! zo
+180
+normal! zo
+227
+normal! zo
+247
+normal! zo
+256
+normal! zo
+261
+normal! zo
+264
+normal! zo
+268
+normal! zo
+364
+normal! zo
+383
+normal! zo
+388
+normal! zo
+393
+normal! zo
+399
+normal! zo
+404
+normal! zo
+410
+normal! zo
+415
+normal! zo
+423
+normal! zo
+516
+normal! zo
+521
+normal! zo
+527
+normal! zo
+535
+normal! zo
+540
+normal! zo
+546
+normal! zo
+554
+normal! zo
+557
+normal! zo
+561
+normal! zo
+565
+normal! zo
+580
+normal! zo
+586
+normal! zo
+590
+normal! zo
+593
+normal! zo
+595
+normal! zo
+603
+normal! zo
+607
+normal! zo
+610
+normal! zo
+612
+normal! zo
+624
+normal! zo
+let s:l = 316 - ((74 * winheight(0) + 23) / 46)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+316
+normal! 01|
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
