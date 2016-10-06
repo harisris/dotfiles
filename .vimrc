@@ -1,3 +1,5 @@
+
+set relativenumber
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -5,12 +7,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Completion Plugins"
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 "Folding Plugins"
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'Konfekt/FastFold'
 
 "Writing prompts"
 Plugin 'junegunn/limelight.vim'
@@ -25,6 +28,8 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
 
 "Misc"
+Plugin 'ivanov/vim-ipython'
+
 "Markdown Plugins"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -50,29 +55,66 @@ Plugin 'easymotion/vim-easymotion'
 call vundle#end()
 filetype plugin indent on
 
+
 """open vimr"""
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>V :tabnew ~/.vimrc<CR>
 
 """""""""""""""Relative Number Toggle"""""""""""""""
 function! NumberToggle()
-	if(&relativenumber == 1)
+	if(&relativenumber == 0)
 		set number
 	else
 		set relativenumber
 	endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+"nnoremap <C-n> :call NumberToggle()<cr>
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""Tagbar""""""""""
+
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "shift between buffer without saving
 set hidden
 set backspace=indent,eol,start
 
+
+"Paste Clipboard"
+set clipboard=unnamed
 
 "Markdown stuff
 let g:vim_markdown_math = 1
