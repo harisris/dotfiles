@@ -61,6 +61,7 @@ setlocal foldtext=foldtext()
 setlocal formatexpr=
 setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=0
@@ -75,6 +76,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
@@ -94,6 +96,7 @@ setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
+setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=0
 setlocal nospell
@@ -118,16 +121,26 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-59
+71
 normal! zo
-112
+72
 normal! zo
-let s:l = 87 - ((44 * winheight(0) + 22) / 45)
+74
+normal! zo
+92
+normal! zo
+106
+normal! zo
+110
+normal! zo
+162
+normal! zo
+let s:l = 172 - ((33 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-87
-normal! 0
+172
+normal! 09|
 lcd ~/Desktop
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

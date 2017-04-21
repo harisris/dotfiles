@@ -1,3 +1,5 @@
+
+set relativenumber
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -5,12 +7,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Completion Plugins"
-Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 "Folding Plugins"
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'Konfekt/FastFold'
 
 "Writing prompts"
 Plugin 'junegunn/limelight.vim'
@@ -18,6 +21,7 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'google/vim-colorscheme-primary'
 
 "Side Trees"
 Plugin 'hari-rangarajan/CCTree'
@@ -25,6 +29,12 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
 
 "Misc"
+Plugin 'ivanov/vim-ipython'
+Plugin 'etnadji/vim-epub'
+
+
+Plugin 'hdima/python-syntax'
+
 "Markdown Plugins"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -35,6 +45,7 @@ Plugin 'parkr/vim-jekyll'
 Plugin 'lambdalisue/vim-manpager'
 Plugin 'valloric/ListToggle'
 Plugin 'ervandew/supertab'
+
 
 "Plugin 'Shougo/neosnippet.vim'
 "Plugin 'Shougo/neosnippet-snippets'
@@ -50,29 +61,66 @@ Plugin 'easymotion/vim-easymotion'
 call vundle#end()
 filetype plugin indent on
 
+
 """open vimr"""
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>V :tabnew ~/.vimrc<CR>
 
 """""""""""""""Relative Number Toggle"""""""""""""""
 function! NumberToggle()
-	if(&relativenumber == 1)
+	if(&relativenumber == 0)
 		set number
 	else
 		set relativenumber
 	endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+"nnoremap <C-n> :call NumberToggle()<cr>
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""Tagbar""""""""""
+
+nmap <F8> :TagbarToggle<CR>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "shift between buffer without saving
 set hidden
 set backspace=indent,eol,start
 
+
+"Paste Clipboard"
+set clipboard=unnamed
 
 "Markdown stuff
 let g:vim_markdown_math = 1
@@ -87,6 +135,8 @@ set splitbelow
 set splitright
 
 let g:tex_flavor = 'latex'
+let python_highlight_all = 1
+
 
 
 "folding
@@ -153,8 +203,18 @@ autocmd CompleteDone * pclose
 
 """"""""""""""""""""""""""EYECANDY""""""""""""""""""""""""""""
 "colorscheme"
-colorscheme rt_vimcolor
+colorscheme rt_goo
+
+syntax enable
 syntax on
+"set t_Co=256
+"set background=dark
+"colorscheme primary
+
+
+
+
+"syntax on
 "powerline stuff
 set laststatus=2
 set showtabline=2
@@ -163,7 +223,7 @@ set noshowmode
 "airline"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='murmur'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 """""""""""""""""""""""Misc Tweaks""""""""""""""""""""""""""
 """copy-paste"""
