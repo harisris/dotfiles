@@ -21,6 +21,7 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'google/vim-colorscheme-primary'
 
 "Side Trees"
 Plugin 'hari-rangarajan/CCTree'
@@ -29,6 +30,10 @@ Plugin 'majutsushi/tagbar'
 
 "Misc"
 Plugin 'ivanov/vim-ipython'
+Plugin 'etnadji/vim-epub'
+
+
+Plugin 'hdima/python-syntax'
 
 "Markdown Plugins"
 Plugin 'godlygeek/tabular'
@@ -40,6 +45,7 @@ Plugin 'parkr/vim-jekyll'
 Plugin 'lambdalisue/vim-manpager'
 Plugin 'valloric/ListToggle'
 Plugin 'ervandew/supertab'
+
 
 "Plugin 'Shougo/neosnippet.vim'
 "Plugin 'Shougo/neosnippet-snippets'
@@ -129,6 +135,8 @@ set splitbelow
 set splitright
 
 let g:tex_flavor = 'latex'
+let python_highlight_all = 1
+
 
 
 "folding
@@ -195,8 +203,18 @@ autocmd CompleteDone * pclose
 
 """"""""""""""""""""""""""EYECANDY""""""""""""""""""""""""""""
 "colorscheme"
-colorscheme rt_vimcolor
+colorscheme rt_goo
+
+syntax enable
 syntax on
+"set t_Co=256
+"set background=dark
+"colorscheme primary
+
+
+
+
+"syntax on
 "powerline stuff
 set laststatus=2
 set showtabline=2
@@ -205,7 +223,7 @@ set noshowmode
 "airline"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='murmur'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 """""""""""""""""""""""Misc Tweaks""""""""""""""""""""""""""
 """copy-paste"""
