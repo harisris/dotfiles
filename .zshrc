@@ -5,7 +5,7 @@ export ZSH=/Users/user/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="harisris"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,28 +49,27 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting brew osx web-search autojump colorize copydir copyfile cp history history-substring-search)
+plugins=(git zsh-syntax-highlighting brew osx autojump colorize copydir copyfile cp history history-substring-search common-aliases)
 
 # User configuration
 
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
-export PATH="/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin"
 export GOPATH=$HOME/golang
+export PATH="/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin"
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/lib
 export PATH=$PATH:$GOROOT/bin
 export CUDA_ROOT="/usr/local/cuda"
-export THEANO_FLAGS="mode=FAST_RUN,device=gpu,floatX=float32"
 export PYTHONSTARTUP=~/.pythonrc
 
-# CUDA
+
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export LD_LIBRARY_PATH="$CUDA_ROOT/lib:$LD_LIBRARY_PATH"
 export PATH="$CUDA_ROOT/bin:$PATH"
-# 
 
- #export MANPATH="/usr/local/man:$MANPATH"
+#export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,3 +97,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+#export MPLBACKEND="module://itermplot"
+#export ITERMPLOT=rv
+
+
+##################MY ALIASES###################
+alias latex='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --app=https://www.sharelatex.com'
+alias brwe=brew
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+PATH="/Users/user/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/user/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/user/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/user/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/user/perl5"; export PERL_MM_OPT;
