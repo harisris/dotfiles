@@ -1,0 +1,17 @@
+{
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": false
+    }
+  }, 
+  "load_extensions": {
+    "notify/notify": true, 
+    "execute_time/ExecuteTime": true, 
+    "nbextensions_configurator/config_menu/main": true, 
+    "chrome-clipboard/main": true, 
+    "codefolding/main": true
+  }, 
+  "Notebook": {
+    "Header": false
+  }
+}
