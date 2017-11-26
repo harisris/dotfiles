@@ -41,7 +41,7 @@ Plug 'junegunn/vim-emoji'
 
 "Misc"
 Plug 'ivanov/vim-ipython'
-Plug 'etnadji/vim-epub'
+"Plug 'etnadji/vim-epub'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 "Plug 'hdima/python-syntax'
@@ -109,6 +109,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " turn off search highlight
 "nnoremap <leader><space> :nohlsearch<CR>
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Completion~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
+set lazyredraw
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#enable_cache = 1
 "let g:deoplete#sources = {}
