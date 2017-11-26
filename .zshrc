@@ -49,30 +49,31 @@ ZSH_THEME="harisris"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting brew osx autojump colorize copydir copyfile cp history history-substring-search common-aliases)
+plugins=(git brew osx autojump colorize copydir copyfile cp history history-substring-search common-aliases fast-syntax-highlighting)
 
 # User configuration
 
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
+export PATH=$CUDA_HOME/bin:$PATH
 export GOPATH=$HOME/golang
-export PATH="/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin"
+export PATH=/usr/local/cuda/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin:$GOPATH/bin:/usr/local/lib:$GOROOT/bin
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:/usr/local/lib
-export PATH=$PATH:$GOROOT/bin
-export CUDA_ROOT="/usr/local/cuda"
+export CUDA_ROOT=/usr/local/cuda
 export PYTHONSTARTUP=~/.pythonrc
-
 
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export LD_LIBRARY_PATH="$CUDA_ROOT/lib:$LD_LIBRARY_PATH"
-export PATH="$CUDA_ROOT/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_ROOT/extras/CUPTI/lib:$LD_LIBRARY_PATH"
+
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 #export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -101,17 +102,45 @@ source $ZSH/oh-my-zsh.sh
 
 #export MPLBACKEND="module://itermplot"
 #export ITERMPLOT=rv
-
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 ##################MY ALIASES###################
 alias latex='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --app=https://www.sharelatex.com'
 alias brwe=brew
+alias nv=nvim
+alias cim=nvim
+alias vim=nvim
+alias jn='jupyter notebook'
+alias tb=tensorboard
+alias l='exa -rbghHliS --sort=size' 
+alias cl='clear'
+alias sz='source ~/.zshrc'
+alias lt='exa -rbghHliST --sort=size'
+alias du=du -hs * | sort -h
+alias tbl="tensorboard --logdir='./logs'"
+function appunlock() {
+	sudo xattr -rd com.apple.quarantine /Applications/"$*"
+	}
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-PATH="/Users/user/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/user/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/user/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/user/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/user/perl5"; export PERL_MM_OPT;
+# fd - cd to selected directory
+#fd() {
+#  local dir
+#  dir=$(find ${1:-.} -path '*/\.*' -prune \
+#                  -o -type d -print 2> /dev/null | fzf +m) &&
+#  cd "$dir"
+#}
+
+#PATH="/Users/user/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/Users/user/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/Users/user/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/Users/user/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/Users/user/perl5"; export PERL_MM_OPT;
+#export PATH="/usr/local/sbin:$PATH"
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
