@@ -1,0 +1,212 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+imap <buffer> <Nul> <C-Space>
+inoremap <buffer> <expr> <C-Space> jedi#complete_string(0)
+imap <buffer> <silent> <F5> <Plug>(IPython-RunFile)
+imap <buffer> <S-F5> <Plug>(IPython-RunLines)
+imap <buffer> <C-F5> <Plug>(IPython-RunFile)
+noremap <buffer> <silent> ra :PymodeRopeAutoImport
+noremap <buffer> <silent> r1p :call pymode#rope#module_to_package()
+noremap <buffer> <silent> rnc :call pymode#rope#generate_class()
+noremap <buffer> <silent> rnp :call pymode#rope#generate_package()
+noremap <buffer> <silent> rnf :call pymode#rope#generate_function()
+noremap <buffer> <silent> ru :call pymode#rope#use_function()
+noremap <buffer> <silent> rs :call pymode#rope#signature()
+noremap <buffer> <silent> rv :call pymode#rope#move()
+noremap <buffer> <silent> ri :call pymode#rope#inline()
+vnoremap <buffer> <silent> rl :call pymode#rope#extract_variable()
+vnoremap <buffer> <silent> rm :call pymode#rope#extract_method()
+noremap <buffer> <silent> r1r :call pymode#rope#rename_module()
+noremap <buffer> <silent> rr :call pymode#rope#rename()
+noremap <buffer> <silent> ro :call pymode#rope#organize_imports()
+noremap <buffer> <silent> f :call pymode#rope#find_it()
+noremap <buffer> <silent> d :call pymode#rope#show_doc()
+noremap <buffer> <silent> g :call pymode#rope#goto_definition()
+smap <buffer> <silent>  <Plug>(IPython-RunLine)
+nmap <buffer> <silent>  <Plug>(IPython-RunLine)
+xmap <buffer> <silent>  <Plug>(IPython-RunLines)
+omap <buffer> <silent>  <Plug>(IPython-RunLine)
+onoremap <buffer> C :call pymode#motion#select('^\s*class\s', 0)
+vnoremap <buffer> <silent> K :call pymode#doc#show(@*)
+nnoremap <buffer> <silent> K :call jedi#show_documentation()
+onoremap <buffer> M :call pymode#motion#select('^\s*def\s', 0)
+vnoremap <buffer> [M :call pymode#motion#vmove('^\s*def\s', 'b')
+onoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
+onoremap <buffer> [C :call pymode#motion#move('\v^(class|def)\s', 'b')
+nnoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
+nnoremap <buffer> [C :call pymode#motion#move('\v^(class|def)\s', 'b')
+vnoremap <buffer> [[ :call pymode#motion#vmove('\v^(class|def)\s', 'b')
+onoremap <buffer> [[ :call pymode#motion#move('\v^(class|def)\s', 'b')
+nnoremap <buffer> [[ :call pymode#motion#move('\v^(class|def)\s', 'b')
+nnoremap <buffer> \g :call jedi#goto_assignments()
+nnoremap <buffer> \n :call jedi#usages()
+vmap <buffer> <silent> \d <Plug>(IPython-OpenPyDoc)
+nnoremap <buffer> \d :call jedi#goto()
+map <buffer> <silent> \s <Plug>(IPython-UpdateShell)
+omap <buffer> <silent> \d <Plug>(IPython-OpenPyDoc)
+nnoremap <buffer> <silent> \b :call pymode#breakpoint#operate(line('.'))
+vnoremap <buffer> \r :call jedi#rename_visual()
+nnoremap <buffer> \r :call jedi#rename()
+vnoremap <buffer> ]M :call pymode#motion#vmove('^\s*def\s', '')
+onoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
+onoremap <buffer> ]C :call pymode#motion#move('\v^(class|def)\s', '')
+nnoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
+nnoremap <buffer> ]C :call pymode#motion#move('\v^(class|def)\s', '')
+vnoremap <buffer> ]] :call pymode#motion#vmove('\v^(class|def)\s', '')
+onoremap <buffer> ]] :call pymode#motion#move('\v^(class|def)\s', '')
+nnoremap <buffer> ]] :call pymode#motion#move('\v^(class|def)\s', '')
+vnoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
+onoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
+vnoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
+onoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
+vnoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
+onoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
+vnoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
+onoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
+smap <buffer> <Nul> <C-Space>
+snoremap <buffer> <expr> <C-Space> 'c'.jedi#complete_string(0)
+map <buffer> <silent> <C-CR> <Plug>(IPython-RunFile)
+map <buffer> <C-F5> <Plug>(IPython-ToggleSendOnSave)
+map <buffer> <silent> <S-F9> <Plug>(IPython-ToggleReselect)
+map <buffer> <silent> <F9> <Plug>(IPython-RunLines)
+map <buffer> <silent> <S-F5> <Plug>(IPython-RunLine)
+map <buffer> <silent> <F5> <Plug>(IPython-RunFile)
+imap <buffer> <silent>  <Plug>(IPython-RunLine)
+inoremap <buffer> <silent>   =jedi#smart_auto_mappings()
+inoremap <buffer> <silent> . .=jedi#complete_string(1)
+smap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+nmap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+snoremap <buffer> <silent> ã I#
+nnoremap <buffer> <silent> ã I#
+snoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+nnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+xnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+onoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+xnoremap <buffer> <silent> ã I#
+onoremap <buffer> <silent> ã I#
+xmap <buffer> <silent> ó <Plug>(IPython-RunLinesAsTopLevel)
+omap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=b:#,fb:-
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=inc
+setlocal conceallevel=2
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'python'
+setlocal filetype=python
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=SimpylFold#FoldExpr(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()\ .\ SimpylFold#FoldText()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\(from\\|import\\)
+setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+setlocal indentexpr=GetPythonIndent(v:lnum)
+setlocal indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=pydoc
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=pythoncomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal relativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!airline#statusline(1)
+setlocal suffixesadd=.py
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'python'
+setlocal syntax=python
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 67 - ((58 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+67
+normal! 0
+lcd ~/Learn/Inception
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

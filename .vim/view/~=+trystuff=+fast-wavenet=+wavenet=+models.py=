@@ -2,15 +2,24 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
+inoremap <buffer> <expr> <C-Space> jedi#complete_string(0)
+imap <buffer> <Nul> <C-Space>
 imap <buffer> <silent> <F5> <Plug>(IPython-RunFile)
 imap <buffer> <S-F5> <Plug>(IPython-RunLines)
 imap <buffer> <C-F5> <Plug>(IPython-RunFile)
-xmap <buffer> <silent>  <Plug>(IPython-RunLines)
 nmap <buffer> <silent>  <Plug>(IPython-RunLine)
 smap <buffer> <silent>  <Plug>(IPython-RunLine)
+xmap <buffer> <silent>  <Plug>(IPython-RunLines)
 omap <buffer> <silent>  <Plug>(IPython-RunLine)
-map <buffer> <silent> \s <Plug>(IPython-UpdateShell)
+nnoremap <buffer> <silent> K :call jedi#show_documentation()
+vnoremap <buffer> \r :call jedi#rename_visual()
+nnoremap <buffer> \r :call jedi#rename()
+nnoremap <buffer> \n :call jedi#usages()
+nnoremap <buffer> \g :call jedi#goto_assignments()
 map <buffer> <silent> \d <Plug>(IPython-OpenPyDoc)
+map <buffer> <silent> \s <Plug>(IPython-UpdateShell)
+snoremap <buffer> <expr> <C-Space> 'c'.jedi#complete_string(0)
+smap <buffer> <Nul> <C-Space>
 map <buffer> <silent> <C-CR> <Plug>(IPython-RunFile)
 map <buffer> <C-F5> <Plug>(IPython-ToggleSendOnSave)
 map <buffer> <silent> <S-F9> <Plug>(IPython-ToggleReselect)
@@ -18,17 +27,19 @@ map <buffer> <silent> <F9> <Plug>(IPython-RunLines)
 map <buffer> <silent> <S-F5> <Plug>(IPython-RunLine)
 map <buffer> <silent> <F5> <Plug>(IPython-RunFile)
 imap <buffer> <silent>  <Plug>(IPython-RunLine)
-xnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+inoremap <buffer> <silent>   =jedi#smart_auto_mappings()
+inoremap <buffer> <silent> . .=jedi#complete_string(1)
 nnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
 snoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
-onoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
-xnoremap <buffer> <silent> ã I#
 nnoremap <buffer> <silent> ã I#
 snoremap <buffer> <silent> ã I#
-onoremap <buffer> <silent> ã I#
-xmap <buffer> <silent> ó <Plug>(IPython-RunLinesAsTopLevel)
 nmap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
 smap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+xnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+onoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+xnoremap <buffer> <silent> ã I#
+onoremap <buffer> <silent> ã I#
+xmap <buffer> <silent> ó <Plug>(IPython-RunLinesAsTopLevel)
 omap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
 let &cpo=s:cpo_save
 unlet s:cpo_save
@@ -81,6 +92,7 @@ setlocal foldtext=foldtext()\ .\ SimpylFoldText()
 setlocal formatexpr=
 setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=0
@@ -95,6 +107,7 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
+setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
@@ -141,6 +154,8 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 9,43fold
+9,43fold
+9,43fold
 45,50fold
 52,64fold
 8,64fold
@@ -149,16 +164,18 @@ silent! normal! zE
 67,135fold
 8
 normal! zo
+9
+normal! zo
+9
+normal! zo
 67
 normal! zo
-68
-normal! zo
-let s:l = 98 - ((97 * winheight(0) + 30) / 61)
+let s:l = 114 - ((113 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-98
-normal! 04|
+114
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
