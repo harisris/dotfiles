@@ -18,8 +18,10 @@ Plug 'vim-scripts/EightHeader'
 "Completion Plugs"
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'davidhalter/jedi-vim'
+Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
+
+
+"Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 
 "Folding Plugs"
@@ -37,7 +39,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'google/vim-colorscheme-primary'
 "Plug 'python-mode/python-mode'
 Plug 'junegunn/vim-emoji'
-
+Plug 'majutsushi/tagbar'
 
 "Misc"
 Plug 'ivanov/vim-ipython'
@@ -68,6 +70,7 @@ Plug 'kien/ctrlp.vim'
 "Plug 'lervag/vimtex'
 "Plug 'LaTeX-Suite-aka-Vim-LaTeX'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 "Plug 'vim-scripts/restore_view.vim'
 "Plug 'kopischke/vim-stay'
@@ -76,6 +79,10 @@ call plug#end()
 "call vundle#end()
 "filetype plugin indent on
 
+
+
+let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_prog='/usr/local/bin/python3'
 
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Tweaks~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
@@ -115,8 +122,8 @@ let g:deoplete#sources#jedi#enable_cache = 1
 "let g:deoplete#sources = {}
 "let g:deoplete#sources.python = ['ultisnips', 'jedi']
 let g:deoplete#max_list = 50 
-let g:jedi#show_call_signatures = "0"
-let g:jedi#popup_on_dot = 0
+"let g:jedi#show_call_signatures = "0"
+"let g:jedi#popup_on_dot = 0
 
 "autocmd FileType python call jedi#configure_call_signatures()
 "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -210,8 +217,16 @@ vnoremap <Space> za
 let g:fastfold_savehook = 1
 set viewoptions=cursor,folds,slash,unix
 
+""""""""""""""""""""""""""""NERDTree"""""""""""""""""""""""""""""""""""
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 
+
+""""""Tagbar""""""
+nmap <C-q> :TagbarToggle<CR>
 
 
 """""""""Python"""""""""

@@ -12,6 +12,7 @@
     "codefolding/main": true
   }, 
   "Notebook": {
-    "Header": false
+    "Header": false, 
+    "Toolbar": false
   }
 }

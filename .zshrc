@@ -57,7 +57,7 @@ export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH=$CUDA_HOME/bin:$PATH
 export GOPATH=$HOME/golang
-export PATH=/usr/local/cuda/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin:$GOPATH/bin:/usr/local/lib:$GOROOT/bin
+export PATH=/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/python/libexec/bin:/usr/local/go/bin:~/Scripts:${GOPATH//://bin:}/bin:$GOPATH/bin:/usr/local/lib:$GOROOT/bin:$PATH
 export GOROOT=/usr/local/opt/go/libexec
 export CUDA_ROOT=/usr/local/cuda
 export PYTHONSTARTUP=~/.pythonrc
@@ -65,7 +65,7 @@ export PYTHONSTARTUP=~/.pythonrc
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export LD_LIBRARY_PATH="$CUDA_ROOT/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="$CUDA_ROOT/extras/CUPTI/lib:$LD_LIBRARY_PATH"
-
+#export PYTHONPATH="/Users/user/Scripts/cleverhans":$PYTHONPATH
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 #export MANPATH="/usr/local/man:$MANPATH"
@@ -111,15 +111,27 @@ alias nv=nvim
 alias cim=nvim
 alias vim=nvim
 alias jn='jupyter notebook'
-alias tb=tensorboard
 alias l='exa -rbghHliS --sort=size' 
 alias cl='clear'
 alias sz='source ~/.zshrc'
 alias lt='exa -rbghHliST --sort=size'
 alias du=du -hs * | sort -h
-alias tbl="tensorboard --logdir='./logs'"
+alias tbc='tensorboard --logdir=$PWD'
+#alias tbl="tensorboard --logdir='./logs'"
+#
+function try() {
+	echo $1
+}
+function tb() {
+	echo $1;
+	tensorboard --logdir="$1"
+	}
 function appunlock() {
 	sudo xattr -rd com.apple.quarantine /Applications/"$*"
+	}
+
+function ydl() {
+	youtube-dl --external-downloader aria2c --external-downloader-args "-j 16 -s 16 -x 16 -k 5M" -f bestvideo+bestaudio "$1"
 	}
 
 
@@ -144,3 +156,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/sbin:$PATH"

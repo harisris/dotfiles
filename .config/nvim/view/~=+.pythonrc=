@@ -1,5 +1,37 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+imap <buffer> <silent> <F5> <Plug>(IPython-RunFile)
+imap <buffer> <S-F5> <Plug>(IPython-RunLines)
+imap <buffer> <C-F5> <Plug>(IPython-RunFile)
+smap <buffer> <silent>  <Plug>(IPython-RunLine)
+nmap <buffer> <silent>  <Plug>(IPython-RunLine)
+xmap <buffer> <silent>  <Plug>(IPython-RunLines)
+omap <buffer> <silent>  <Plug>(IPython-RunLine)
+map <buffer> <silent> \s <Plug>(IPython-UpdateShell)
+map <buffer> <silent> \d <Plug>(IPython-OpenPyDoc)
+map <buffer> <silent> <C-CR> <Plug>(IPython-RunFile)
+map <buffer> <C-F5> <Plug>(IPython-ToggleSendOnSave)
+map <buffer> <silent> <S-F9> <Plug>(IPython-ToggleReselect)
+map <buffer> <silent> <F9> <Plug>(IPython-RunLines)
+map <buffer> <silent> <S-F5> <Plug>(IPython-RunLine)
+map <buffer> <silent> <F5> <Plug>(IPython-RunFile)
+imap <buffer> <silent>  <Plug>(IPython-RunLine)
+smap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+nmap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+snoremap <buffer> <silent> ã I#
+nnoremap <buffer> <silent> ã I#
+snoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+nnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+xnoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+onoremap <buffer> <silent> Ã :s/^\([ \t]*\)#/\1/
+xnoremap <buffer> <silent> ã I#
+onoremap <buffer> <silent> ã I#
+xmap <buffer> <silent> ó <Plug>(IPython-RunLinesAsTopLevel)
+omap <buffer> <silent> ó <Plug>(IPython-RunLineAsTopLevel)
+let &cpo=s:cpo_save
+unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -82,6 +114,7 @@ setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
+setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=0
 setlocal nospell
@@ -106,54 +139,28 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-33
+88
 normal! zo
-56
+122
 normal! zo
-57
+154
 normal! zo
-57
+162
 normal! zo
-57
+174
 normal! zo
-91
+185
 normal! zo
-124
+194
 normal! zo
-125
+225
 normal! zo
-135
-normal! zo
-138
-normal! zo
-164
-normal! zo
-168
-normal! zo
-170
-normal! zo
-171
-normal! zo
-179
-normal! zo
-184
-normal! zo
-187
-normal! zo
-204
-normal! zo
-219
-normal! zo
-223
-normal! zo
-227
-normal! zo
-let s:l = 69 - ((59 * winheight(0) + 30) / 60)
+let s:l = 28 - ((27 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-69
-normal! 07|
+28
+normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

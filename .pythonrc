@@ -79,7 +79,7 @@ from tempfile import mkstemp
 
 HISTFILE = os.path.expanduser("~/.python_history")
 HISTSIZE = 1000
-EDITOR   = os.environ.get('EDITOR', 'vi')
+EDITOR   = os.environ.get('EDITOR', 'neovim')
 SHELL    = os.environ.get('SHELL', '$SHELL')
 
 

@@ -82,13 +82,14 @@ setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
+setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=4
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!airline#statusline(2)
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=.py
 setlocal swapfile
 setlocal synmaxcol=3000
@@ -114,12 +115,8 @@ normal! zo
 normal! zo
 84
 normal! zc
-70
-normal! zc
 145
 normal! zo
-145
-normal! zc
 185
 normal! zo
 193
@@ -130,12 +127,12 @@ normal! zc
 normal! zo
 211
 normal! zo
-let s:l = 36 - ((2 * winheight(0) + 22) / 44)
+let s:l = 12 - ((11 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 012|
+12
+normal! 017|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
