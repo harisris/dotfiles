@@ -12,7 +12,7 @@
 */
 
 body, body.notebook_app.command_mode {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important; background-color: #000 !important; 
 }
 
 /* 
@@ -25,25 +25,25 @@ body, body.notebook_app.command_mode {
 */
 
 .CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
-    font-family: "SF Mono", Monaco, monospace;
-    font-size: 9pt;
+    font-family: "IBM Plex Mono" , "Courier New", "SF Mono", Monaco, monospace !important;
+    font-size: 9.5pt !important;
 }
 .terminal-app .terminal { line-height: 1.3em; }
 div.output pre, div.output code, .rendered_html pre, .rendered_html code, div.completions select, div.container pre {
-  font-family: "SF Mono", Monaco, monospace;
+  font-family: "IBM Plex Mono", "SF Mono", Monaco, monospace !important; color:#b3d7f9 !important;
 }
 div.output pre, div.output code, .rendered_html pre, .rendered_html p code, div.completions select, div.container pre {
-    font-size: 9pt;
+    font-size: 9.5pt;
 }
 
 div.prompt, div.tooltiptext pre {
-    font-family: "SF Mono", Monaco, monospace;
+    font-family: "IBM Plex Mono", "SF Mono", Monaco, monospace;
     font-size: 8pt;
 }
 
 div.input_area {
-    border-color: rgba(0, 0, 0, 0.10);
-    background: rbga(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0);
+    background: rbga(0, 0, 0);
 }
 
 
@@ -59,8 +59,10 @@ div.input_area {
 /* Prevent the edit cell highlight box from getting clipped;
  * important so that it also works when cell is in edit mode*/
 div.cell.selected {
-    border-left-width: 1px !important;
+    border-left-width: 2px !important; border-color: #000 !important;
 }
+
+div.cell.edit_mode { border-color: #268bd2 !important; }
 
 /* GLOBALS */
 
@@ -93,7 +95,7 @@ body[data-notebook-path] #header, .terminal-app #header { display: none !importa
 #notebook_list input[type="checkbox"] { opacity: 0.3; }
 #notebook_list input[type="checkbox"]:checked { opacity: 1; }
 .item_icon { color: #777; }
-.panel { border-color: #000; background-color: #222; }
+.panel { border-color: #000; background-color: #000; }
 .panel-default > .panel-heading { border-color: #000; }
 #site .panel-group .panel .panel-heading { background-color: #000; }
 #running .panel-group .panel .panel-body .list_container .list_item { border-bottom-color: #000; }
@@ -120,13 +122,13 @@ body[data-notebook-path] #header, .terminal-app #header { display: none !importa
 }
 
 /* TERMINAL INTERFACE */
-.terminal-app #site { background: #272727; }
+.terminal-app #site { background: #000; }
 .terminal-app .terminal { background: #141414 !important; }
 
 /* NOTEBOOK AND EDITOR INTERFACE */
 
 /* comment out the following line to unhide the toolbar */
-div#maintoolbar { display: none !important; }
+/* div#maintoolbar { display: none !important; }
 
 /*
   Header UI styles
@@ -375,7 +377,7 @@ span.ansiyellow {color: #f9ee98;}
 .CodeMirror {background: #000000; color: #4885ed;}
 div.CodeMirror-selected {background: rgba(221, 240, 255, 0.19) !important;}
 #texteditor-backdrop #texteditor-container .CodeMirror-gutter, .CodeMirror-gutters {background: #000; border-right: 0px; color: #777;}
-.CodeMirror-linenumber {color: #b4b7b4;}
+.CodeMirror-linenumber {color: #323232}
 .CodeMirror-cursor {border-left: 1px solid #A7A7A7 !important; margin-top: -2px; min-height: 18px;} 
 
 .CodeMirror span.cm-comment {color: #5F5A60; font-style: italic;}
