@@ -239,7 +239,7 @@ set noshowmode
 
 "airline"
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='murmur'
+let g:airline_theme='term'
 let g:airline_powerline_fonts = 0
 set laststatus=2
 

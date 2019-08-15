@@ -25,7 +25,7 @@ body, body.notebook_app.command_mode {
 */
 
 .CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
-    font-family: "IBM Plex Mono" , "Courier New", "SF Mono", Monaco, monospace !important;
+    font-family: "SF Mono" , "Courier New", "SF Mono", Monaco, monospace !important;
     font-size: 9.5pt !important;
 }
 .terminal-app .terminal { line-height: 1.3em; }
@@ -349,7 +349,7 @@ div.output_html { font-family: sans-serif; }
   }
   .notebook_app div.text_cell_render, .notebook_app div.output_html { color: #979797; }
   .notebook_app table.dataframe tr { border: 1px #979797; }
-
+  .notebook_app div.jupyter-widgets { color : #eee !important;} 
   .notebook_app .rendered_html pre, .notebook_app .rendered_html code {
     border: 0;
     background-color: #000;
