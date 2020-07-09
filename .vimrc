@@ -1,9 +1,6 @@
+" --- Init Plugged ------------------------------------------------------------------------------ "
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Plugins~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 set nocompatible
-"filetype off  
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -13,278 +10,282 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/EightHeader'
+" --- Plugins ----------------------------------------------------------------------------------- "
+
+" Active Plugins
+" Folding
+Plug 'tmhedberg/SimpylFold' 							    "Python Folding
+Plug 'Konfekt/FastFold' 							   "General Folding
+Plug 'kopischke/vim-stay' 					 		     "Restore Views
+
+
+" Eyecandy
+Plug 'mhinz/vim-startify' 					  		      "Start Screen
+Plug 'flazz/vim-colorschemes' 								    "Themes
+Plug 'vim-airline/vim-airline' 							        "Bottom Bar
+Plug 'vim-airline/vim-airline-themes' 						"Themes for Airline
+Plug 'Yggdroot/indentLine' 			     "Thin vertical lines at each indentation level
+
+" Functionality
+Plug 'ervandew/supertab'
+Plug 'valloric/ListToggle'     			   "Toggling display of quickfix and location lists
+Plug 'w0rp/ale' 								   "Syntax Checking
+Plug 'scrooloose/nerdcommenter' 						 "Commenting Helper
+Plug 'norcalli/nvim-colorizer.lua' 			  "Highlight color codes with colored boxes
+Plug 'scrooloose/nerdtree' 						     "Toggle directory tree
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 				      "Fuzzy Search
+Plug 'godlygeek/tabular' 					 "Allign text between char. Eg. ':'
+Plug 'haya14busa/incsearch.vim' 					 "Incremental Search Helper
+Plug 'junegunn/vim-emoji' 						"Emoji functionality in Vim
+
+" Class/Function Tags
+Plug 'majutsushi/tagbar'
+
+" Folds + Headers
+Plug 'vim-scripts/EightHeader' 						     "Form heading patterns
+
+" Miscellaneous
+Plug 'lambdalisue/vim-manpager'
+Plug 'plasticboy/vim-markdown' 						 "Keep after tabular plugin
+Plug 'ivanov/vim-ipython'
+
+call plug#end()
+
+" Standby Plugins
+"Plug 'python-mode/python-mode'
+"Plug 'jeffkreeftmeijer/vim-numbertoggle' 			   "Relative numbers only in i-mode
 
 "Completion Plugs"
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
-
-
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+"Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
 "Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
 
-"Folding Plugs"
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
+"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+
+"Plug 'hdima/python-syntax'
+"Plug 'scrooloose/syntastic' "Syntax Checker
 
 "Writing prompts"
 "Plug 'junegunn/limelight.vim'
 "Plug 'scrooloose/syntastic'
+"Plug 'kien/ctrlp.vim'
+"Plug 'easymotion/vim-easymotion'
 
-"Color Stuff"
-Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'google/vim-colorscheme-primary'
-"Plug 'python-mode/python-mode'
-Plug 'junegunn/vim-emoji'
-Plug 'majutsushi/tagbar'
-
-"Misc"
-Plug 'ivanov/vim-ipython'
-"Plug 'etnadji/vim-epub'
-Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/indentLine'
-"Plug 'hdima/python-syntax'
-
-"Markdown Plugs"
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
-"Plug 'valloric/youcompleteme'
-Plug 'Mizuchi/vim-ranger'
-Plug 'parkr/vim-jekyll'
-Plug 'lambdalisue/vim-manpager'
-Plug 'valloric/ListToggle'
-Plug 'ervandew/supertab'
-
-
-
-Plug 'w0rp/ale'
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
-"Plug 'scrooloose/syntastic'
+" RIP Plugins
+"
+"Plug 'parkr/vim-jekyll'
+"Plug 'vimwiki/vimwiki' "Diary
 "Plug 'xuhdev/vim-latex-live-preview'
-Plug 'kien/ctrlp.vim'
-"Plug 'lervag/vimtex'
-"Plug 'LaTeX-Suite-aka-Vim-LaTeX'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
 "Plug 'vim-scripts/restore_view.vim'
-"Plug 'kopischke/vim-stay'
-call plug#end()
+"Plug 'Mizuchi/vim-ranger'
+"Plug 'itchyny/calendar.vim'
 
-"call vundle#end()
-"filetype plugin indent on
+" --- Mappings ---------------------------------------------------------------------------------- "
 
+"Use semicolon instead of colon. Removes the need for shift.
+nmap ; :
+noremap ;; ;
 
-
-let g:python_host_prog='/usr/local/bin/python'
-let g:python3_host_prog='/usr/local/bin/python3'
-
-
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Tweaks~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 let mapleader=","
-set relativenumber
-"set cursorline
-set ttyfast
-"set notimeout
-"set ttimeout
-"set ttimeoutlen=10
-
-"Open vimrc"
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>V :tabnew ~/.vimrc<CR>
-"Paste Clipboard"
-set clipboard=unnamed
-"shift between buffer without saving
-set hidden
-set backspace=indent,eol,start
 
-" redraw only when we need to.
-"set lazyredraw          
-set showmatch
+" Incremental Search
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
-"Search"
-set incsearch           " search as characters are entered
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-
-"set hlsearch            " highlight matches
-" turn off search highlight
-"nnoremap <leader><space> :nohlsearch<CR>
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Completion~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
-set lazyredraw
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#enable_cache = 1
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.python = ['ultisnips', 'jedi']
-let g:deoplete#max_list = 50 
-"let g:jedi#show_call_signatures = "0"
-"let g:jedi#popup_on_dot = 0
-
-"autocmd FileType python call jedi#configure_call_signatures()
-"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-"let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabCrMapping=1
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabLongestHighlight = 1
-
-"Markdown stuff
-let g:vim_markdown_math = 1
-
-"split navigation remapping
-"nnoremap <C-j> <C-W><C-J>
-"nnoremap <C-k> <C-W><C-K>
-"nnoremap <C-l> <C-W><C-L>
-"nnoremap <C-h> <C-W><C-H>
-
-set splitbelow
-set splitright
-
-let g:tex_flavor = 'latex'
-let python_highlight_all = 1
-
-""""""""""""""""""""""Comment"""""""""""""""""""""""
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-
-
-""""""""""""""""""""""Linting"""""""""""""""""""""""
-let g:ale_sign_error = emoji#for('cry')
-let g:ale_sign_warning = emoji#for('grey_question')
-let g:ale_sign_column_always = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Folding~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
-"set foldmethod=indent
-"set foldcolumn=3
+" Folding
 inoremap <F9> <C-O>za
 nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
-"au BufWinLeave * silent! mkview
-"au BufWinEnter * silent! loadview
-"simpylfold
-
-let g:SimpylFold_docstring_preview = 1
-let g:SimpylFold_fold_import = 0
-
-"autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-"autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-
-
 nmap zuz <Plug>(FastFoldUpdate)
-function! NeatFoldText() "{{{2
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
-" }}}2
 nnoremap <Space> za
 vnoremap <Space> za
 
-let g:fastfold_savehook = 1
-set viewoptions=cursor,folds,slash,unix
+" Linting
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-""""""""""""""""""""""""""""NERDTree"""""""""""""""""""""""""""""""""""
+" Tagbar
+nmap <C-q> :TagbarToggle<CR>
+
+" --- Configuration ----------------------------------------------------------------------------- "
+
+" Sanity in Vim
+set mouse=a 								      "Use mouse everywhere
+set clipboard=unnamed 							  "Use systemwide clipboard
+set splitbelow
+set splitright
+set relativenumber
+set hidden
+set termguicolors 						     "We live in 2020s now. Come on
+set lazyredraw
+set showmatch 								   "Show brackets for a sec 
+syntax enable
+syntax on
+lua require'colorizer'.setup()
+
+" Search
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+
+" SuperTab
+let g:SuperTabDefaultCompletionType        = "<c-n>" 				 "Navigate from top
+let g:SuperTabContextDefaultCompletionType = "<c-n>" 		       "Navigate from top (Context)
+let g:SuperTabCrMapping                    = 1
+let g:SuperTabLongestHighlight             = 1
+"let g:SuperTabClosePreviewOnPopupClose    = 1
+
+" Markdown stuff
+let g:vim_markdown_math          = 1
+let g:tex_flavor                 = 'latex'
+
+" NerdCommenter
+
+let g:NERDSpaceDelims            = 1 					  " Spaces after delimiters
+let g:NERDCompactSexyComs        = 1 			   " Compact syntax for multi-line comments
+let g:NERDDefaultAlign           = 'left' 		       " Align line-wise comment delimiters
+let g:NERDCommentEmptyLines      = 1 		       " Allow commenting and inverting empty lines
+let g:NERDTrimTrailingWhitespace = 1 		" Trimming of trailing whitespace when uncommenting
+
+" Linting
+let g:ale_sign_error = emoji#for('cry')
+let g:ale_sign_warning = emoji#for('grey_question')
+let g:ale_sign_column_always = 1
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+function! LinterStatus() abort
+    let l:counts         = ale#statusline#Count(bufnr(''))
+    let l:all_errors     = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? 'OK' : printf('%dW %dE', all_non_errors, all_errors)
+endfunction
+
+set statusline=%{LinterStatus()}
+
+" Folding
+
+set viewoptions=cursor,folds,slash,unix "vim-stay
+let g:fastfold_savehook=1
+
+
+" function! NeatFoldText() "{{{2
+"   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+"   let lines_count = v:foldend - v:foldstart + 1
+"   let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+"   let foldchar = matchstr(&fillchars, 'fold:\zs.')
+"   let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+"   let foldtextend = lines_count_text . repeat(foldchar, 8)
+"   let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+"   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+" endfunction
+" set foldtext=NeatFoldText()
+" " }}}2
+
+function! CustomFoldText(delim)
+  "get first non-blank line
+  let fs = nextnonblank(v:foldstart)
+  if fs > v:foldend
+      let line = getline(v:foldstart)
+  else
+      let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+  " indent foldtext corresponding to foldlevel
+  let indent = repeat(' ',shiftwidth())
+  let foldLevelStr = repeat(indent, v:foldlevel-1)
+  let foldLineHead = substitute(line, '^\s*', foldLevelStr, '')
+  " size foldtext according to window width
+  let w = winwidth(0) - &foldcolumn - (&number ? &numberwidth : 0) - (&l:signcolumn is# 'yes' ? 2 : 0)
+  let foldSize = 1 + v:foldend - v:foldstart
+  " estimate fold length
+  let foldSizeStr = " " . foldSize . " lines "
+  let lineCount = line("$")
+  if has("float")
+    try
+      let foldPercentage = " " . printf("%4s", printf("%.1f", (foldSize*1.0)/lineCount*100)) . "%] "
+    catch /^Vim\%((\a\+)\)\=:E806/	" E806: Using Float as String
+      let foldPercentage = printf("[of %d lines] ", lineCount)
+    endtry
+  endif
+  " build up foldtext
+  let foldLineTail = foldSizeStr . foldPercentage
+  let lengthTail = strwidth(foldLineTail)
+  let lengthHead = w - (lengthTail + indent)
+  if strwidth(foldLineHead) > lengthHead
+    let foldLineHead = strpart(foldLineHead, 0, lengthHead-2) . '..'
+  endif
+  let lengthMiddle = w - strwidth(foldLineHead.foldLineTail)
+  " truncate foldtext according to window width
+  let expansionString = repeat(a:delim, lengthMiddle)
+  let foldLine = foldLineHead . expansionString . foldLineTail
+  return foldLine
+endfunction
+
+set foldtext=CustomFoldText('\ ')
+
+" Python Folding
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_import = 0
+
+" NerdTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+" Vim Wiki
+"run multiple wikis
+let g:vimwiki_list = [{'path': '~/Documents/VimWiki/personal.wiki'},
+		      \{'path': '~/Documents/VimWiki/tech.wiki'}
+		      \]
 
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
 
-""""""Tagbar""""""
-nmap <C-q> :TagbarToggle<CR>
+function! ToggleCalendar()
+  execute ":Calendar -view=year -split=vertical -width=27"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki map c :call ToggleCalendar()
 
+" UltiSnips"
+let g:UltiSnipsExpandTrigger             = "<tab>"
+let g:UltiSnipsJumpForwardTrigger        = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger       = "<c-z>"
+let g:UltiSnipsEditSplit                 = "vertical"
 
-"""""""""Python"""""""""
-autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
-
-
-
-
-"for UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
-
-"autocmd CompleteDone * pclose
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Eyecandy~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
-
-"colorscheme"
+" Eyecandy
 colorscheme rt_goo_modified
-syntax enable
-syntax on
 set noshowmode
 
-"airline"
-let g:airline#extensions#tabline#enabled = 1
+" Airline"
+let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='murmur'
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts=0
 set laststatus=2
 
+" --- Crossplatform configuration --------------------------------------------------------------- "
 
-
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=%{LinterStatus()}
-
-"""""""""""""""""""""""Misc Tweaks""""""""""""""""""""""""""
-"""copy-paste"""
-vnoremap <C-x> "+x
-vnoremap <S-Del> "+x
-vnoremap <C-c> "+y
-vnoremap <C-Insert> "+y
-map <C-v> "+gP
-map <S-Insert> "+gP
-cmap <C-v> <C-R>+
-cmap<S-Insert> <C-R>+
-
-
+"set ttyfast "Maybe needed for vim.
+"set notimeout
+"set ttimeout
+"set ttimeoutlen=10
