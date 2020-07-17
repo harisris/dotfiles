@@ -37,6 +37,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 				      "Fuzzy Search
 Plug 'godlygeek/tabular' 					 "Allign text between char. Eg. ':'
 Plug 'haya14busa/incsearch.vim' 					 "Incremental Search Helper
 Plug 'junegunn/vim-emoji' 						"Emoji functionality in Vim
+Plug 'rhysd/accelerated-jk' 							"As the name says..
 
 " Class/Function Tags
 Plug 'majutsushi/tagbar'
@@ -93,6 +94,10 @@ noremap ;; ;
 let mapleader=","
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>V :tabnew ~/.vimrc<CR>
+
+" Motion
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 
 " Incremental Search
 map n  <Plug>(incsearch-nohl-n)
