@@ -1,6 +1,5 @@
 # Configuration file for jupyter-notebook.
 
-#------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
 #------------------------------------------------------------------------------
 
@@ -12,10 +11,9 @@
 ## The Logging format template
 #c.Application.log_format = '[%(name)s]%(highlevel)s %(message)s'
 
-## Set the log level by value or name.
-#c.Application.log_level = 30
+## Set the log level by value or name. Choices: (0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL')
+c.Application.log_level = 'WARN'
 
-#------------------------------------------------------------------------------
 # JupyterApp(Application) configuration
 #------------------------------------------------------------------------------
 
@@ -33,7 +31,6 @@
 ## Generate default config file.
 #c.JupyterApp.generate_config = False
 
-#------------------------------------------------------------------------------
 # NotebookApp(JupyterApp) configuration
 #------------------------------------------------------------------------------
 
@@ -73,7 +70,7 @@
 #  If not specified, the default browser will be determined by the `webbrowser`
 #  standard library module, which allows setting of the BROWSER environment
 #  variable to override it.
-c.NotebookApp.browser = u'Safari'
+c.NotebookApp.browser = u'Firefox'
 
 ## The full path to an SSL/TLS certificate file.
 #c.NotebookApp.certfile = u''
@@ -214,7 +211,7 @@ c.NotebookApp.browser = u'Safari'
 #    from notebook.auth import passwd; passwd()
 #  
 #  The string should be of the form type:salt:hashed-password.
-#c.NotebookApp.password = u''
+c.NotebookApp.password = u'sha1:fcb2821ae2c1:8b1946170468a759d7224590857b7f8c34ec2a3b'
 
 ## Forces users to use a password for the Notebook server. This is useful in a
 #  multi user environment, for instance when everybody in the LAN can access each
@@ -278,7 +275,6 @@ c.NotebookApp.browser = u'Safari'
 #  Should be in the form of an HTTP origin: ws[s]://hostname[:port]
 #c.NotebookApp.websocket_url = ''
 
-#------------------------------------------------------------------------------
 # ConnectionFileMixin(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 
@@ -314,7 +310,6 @@ c.NotebookApp.browser = u'Safari'
 ## 
 #c.ConnectionFileMixin.transport = 'tcp'
 
-#------------------------------------------------------------------------------
 # KernelManager(ConnectionFileMixin) configuration
 #------------------------------------------------------------------------------
 
@@ -338,7 +333,6 @@ c.NotebookApp.browser = u'Safari'
 ## Time to wait for a kernel to terminate before killing it, in seconds.
 #c.KernelManager.shutdown_wait_time = 5.0
 
-#------------------------------------------------------------------------------
 # Session(Configurable) configuration
 #------------------------------------------------------------------------------
 
@@ -431,7 +425,6 @@ c.NotebookApp.browser = u'Safari'
 ## Username for the Session. Default is your system username.
 #c.Session.username = u'srihari'
 
-#------------------------------------------------------------------------------
 # MultiKernelManager(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 
@@ -444,7 +437,6 @@ c.NotebookApp.browser = u'Safari'
 #  KernelManager for customized behavior.
 #c.MultiKernelManager.kernel_manager_class = 'jupyter_client.ioloop.IOLoopKernelManager'
 
-#------------------------------------------------------------------------------
 # MappingKernelManager(MultiKernelManager) configuration
 #------------------------------------------------------------------------------
 
@@ -453,7 +445,6 @@ c.NotebookApp.browser = u'Safari'
 ## 
 #c.MappingKernelManager.root_dir = u''
 
-#------------------------------------------------------------------------------
 # ContentsManager(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 
@@ -512,7 +503,6 @@ c.NotebookApp.browser = u'Safari'
 ## The base name used when creating untitled notebooks.
 #c.ContentsManager.untitled_notebook = 'Untitled'
 
-#------------------------------------------------------------------------------
 # FileManagerMixin(Configurable) configuration
 #------------------------------------------------------------------------------
 
@@ -538,7 +528,6 @@ c.NotebookApp.browser = u'Safari'
 #  )
 #c.FileManagerMixin.use_atomic_writing = True
 
-#------------------------------------------------------------------------------
 # FileContentsManager(FileManagerMixin,ContentsManager) configuration
 #------------------------------------------------------------------------------
 
@@ -563,7 +552,6 @@ c.NotebookApp.browser = u'Safari'
 ## DEPRECATED, use post_save_hook. Will be removed in Notebook 5.0
 #c.FileContentsManager.save_script = False
 
-#------------------------------------------------------------------------------
 # NotebookNotary(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 
@@ -587,7 +575,6 @@ c.NotebookApp.browser = u'Safari'
 #  uses an SQLite database.
 #c.NotebookNotary.store_factory = traitlets.Undefined
 
-#------------------------------------------------------------------------------
 # KernelSpecManager(LoggingConfigurable) configuration
 #------------------------------------------------------------------------------
 

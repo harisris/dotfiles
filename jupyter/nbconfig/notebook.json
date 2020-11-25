@@ -1,0 +1,43 @@
+{
+  "load_extensions": {
+    "plotlywidget/extension": true,
+    "jupyter-js-widgets/extension": true,
+    "notify/notify": true,
+    "execute_time/ExecuteTime": false,
+    "nbextensions_configurator/config_menu/main": true,
+    "chrome-clipboard/main": false,
+    "codefolding/main": true,
+    "contrib_nbextensions_help_item/main": true,
+    "scratchpad/main": true,
+    "snippets_menu/main": true,
+    "varInspector/main": true,
+    "toggle_all_line_numbers/main": true,
+    "zenmode/main": false,
+    "splitcell/splitcell": true,
+    "calysto/cell-tools/main": true,
+    "gist_it/main": true,
+    "skip-traceback/main": true,
+    "snippets/main": true,
+    "code_prettify/autopep8": false,
+    "hinterland/hinterland": false,
+    "latex_envs/latex_envs": true,
+    "code_font_size/code_font_size": false,
+    "highlighter/highlighter": true
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
+  },
+  "Notebook": {
+    "Header": false,
+    "Toolbar": false
+  },
+  "skip-traceback": {
+    "use_toolbar_button": false
+  },
+  "zenmode_use_builtin_backgrounds": true,
+  "latex_envs": {
+    "autoclose": true
+  }
+}

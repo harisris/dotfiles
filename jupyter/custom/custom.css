@@ -1,44 +1,29 @@
-/*
-  Dark theme for Jupyter Notebook/iPython 4
-  Author: Theodore Pak
-  Repo at: https://github.com/powerpak/jupyter-dark-theme
-
-  Inspired by and adapted from the following:
-  Base16 for iPython Notebook (https://github.com/nsonnad/base16-ipython-notebook)
-  Base16 Twilight Dark, David Hart (http://hart-dev.com)
-  CodeMirror template adapted for IPython Notebook by Nikhil Sonnad (https://github.com/nsonnad/base16-ipython-notebook)
-  CodeMirror template by Jan T. Scott (https://github.com/idleberg/base16-chrome-devtools)
-  Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
-*/
 
 body, body.notebook_app.command_mode {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important; background-color: #000 !important; 
+  font-family: 'SF Pro Display', "Helvetica Neue", sans-serif !important; 
+  background-color: #000 !important; 
+  font-size: 180% !important;
+  line-height: 160% !important;
 }
-
-/* 
-  SET THE CODE/MONOSPACE FONT 
-
-  I prefer Bitsream Vera Sans Mono, which is freely downloadable here:
-  http://www.dafont.com/bitstream-vera-mono.font
-  However, there are plenty of alternatives at http://programmingfonts.org/
-  in which case, add your preferred font to the stack below.
-*/
 
 .CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
     font-family: "SF Mono" , "Courier New", "SF Mono", Monaco, monospace !important;
-    font-size: 9.5pt !important;
+    font-size: 150% !important;
+    line-height: 140% !important;
 }
 .terminal-app .terminal { line-height: 1.3em; }
 div.output pre, div.output code, .rendered_html pre, .rendered_html code, div.completions select, div.container pre {
-  font-family: "IBM Plex Mono", "SF Mono", Monaco, monospace !important; color:#b3d7f9 !important;
+  font-family: "SF Mono", monospace !important; 
+  color:#B39DDB !important;
 }
 div.output pre, div.output code, .rendered_html pre, .rendered_html p code, div.completions select, div.container pre {
-    font-size: 9.5pt;
+    font-size: 150% !important;
+    line-height: 140% !important;
 }
 
 div.prompt, div.tooltiptext pre {
-    font-family: "IBM Plex Mono", "SF Mono", Monaco, monospace;
-    font-size: 8pt;
+    font-family: "SF Mono", Monaco, monospace;
+    font-size: 150%;
 }
 
 div.input_area {
@@ -53,15 +38,10 @@ div.input_area {
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CUSTOM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.container {
-    width: 99% !important;
-}
+.container {width: 99% !important;}
 /* Prevent the edit cell highlight box from getting clipped;
  * important so that it also works when cell is in edit mode*/
-div.cell.selected {
-    border-left-width: 2px !important; border-color: #000 !important;
-}
-
+div.cell.selected {border-left-width: 2px !important; border-color: #000 !important;}
 div.cell.edit_mode { border-color: #268bd2 !important; }
 
 /* GLOBALS */
@@ -75,12 +55,9 @@ a:hover, a:focus { color: #f4c20d; }
 body[data-notebook-path] { background-color: #000; }
 body[data-notebook-path] #header, .terminal-app #header { display: none !important; }
 
-.tabbable { color: #979797; }
+.tabbable { color: #eee; } /* Dates on the side*/
 .nav-tabs { border-bottom-color: #000; }
-.nav-tabs > li > a:hover, .nav > li > a:focus {
-  background-color: #000;
-  border-color: #222 #222 #555 #222;
-}
+.nav-tabs > li > a:hover, .nav > li > a:focus {background-color: #000; border-color: #222 #222 #555 #222;}
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { 
   color: #979797;
   background-color: #000;
@@ -94,32 +71,19 @@ body[data-notebook-path] #header, .terminal-app #header { display: none !importa
 .list_header { background-color: #000; }
 #notebook_list input[type="checkbox"] { opacity: 0.3; }
 #notebook_list input[type="checkbox"]:checked { opacity: 1; }
-.item_icon { color: #777; }
+.item_icon { color: #eee; } /* icons color*/
 .panel { border-color: #000; background-color: #000; }
 .panel-default > .panel-heading { border-color: #000; }
 #site .panel-group .panel .panel-heading { background-color: #000; }
 #running .panel-group .panel .panel-body .list_container .list_item { border-bottom-color: #000; }
 
 /* Dropdown menus */
-
-.dropdown-menu {
-  background: rgba(50, 50, 50, 0.95);
-  color: #4885ed;
-}
-.dropdown-menu > li > a, .dropdown-submenu > a:after, .dropdown-menu > li > a:visited:after {
-  color: #4885ed;
-}
-.dropdown-menu .divider {
-  background-color: #000;
-}
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  color: #fff;
-  background-color: #000;
-}
+.dropdown-menu {background: rgba(50, 50, 50, 1); color: #4885ed;}
+.dropdown-menu > li > a, .dropdown-submenu > a:after, .dropdown-menu > li > a:visited:after {color: #4885ed;}
+.dropdown-menu .divider {background-color: #000;}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {color: #fff; background-color: #000;}
 .dropdown-menu > li > a:hover:after, .dropdown-menu > li > a:focus:after, 
-.dropdown-menu > li > a:active:after {
-  color: #fff;
-}
+.dropdown-menu > li > a:active:after {color: #fff;}
 
 /* TERMINAL INTERFACE */
 .terminal-app #site { background: #000; }
@@ -156,9 +120,7 @@ span.save_widget span.filename:hover {
   color: #4885ed;
   border-color: #000;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #fff;
-}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {color: #fff;}
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
   color: #fff;
@@ -184,23 +146,15 @@ span.save_widget span.filename:hover {
   background: #000;
   color: #4885ed;
 }
-.ctb_global_show .ctb_show ~ div.text_cell_render {
-  border-color: #000;
-}
-.celltoolbar select {
-  opacity: 0.9;
-}
+.ctb_global_show .ctb_show ~ div.text_cell_render {border-color: #000;}
+.celltoolbar select {opacity: 0.9;}
 
 .modal-dialog .modal-content, .popover, .popover .popover-title {
   background: rgba(0, 0, 0, 0.95);
   color: #4885ed;
 }
-.modal-header, .popover-title {
-  border-bottom-color: #000;
-}
-.modal-footer {
-  border-top-color: #000;
-}
+.modal-header, .popover-title {border-bottom-color: #000;}
+.modal-footer {border-top-color: #000;}
 .modal-dialog .close {
   color: #fff;
   text-shadow: 0 1px 0 #000;
@@ -298,20 +252,19 @@ span.save_widget span.filename:hover {
 */
 
 div#notebook .text_cell_render {
-  font-size: 16.25px;
-  font-weight: 50;
-  line-height: 1.25;
+  font-size: 180%;
+  font-family: "Avenir Next";
+  /* font-weight: 50; */
+  line-height: 140%;
 }
 
-.rendered_html li p {
-  margin-top: 1em;
-}
+.rendered_html li p {margin-top: 1em;}
+.rendered_html h1 {color: #7986CB; font-weight: 600;}
+.rendered_html h2 {color: #9FA8DA; font-weight: 600;}
+.rendered_html h3 {color: #C5CAE9; font-weight: 600;}
+.rendered_html h4 {color: #E8EAF6; font-weight: 600;}
 
-.rendered_html h1 {
-    color: #CF4A4C;
-}
-
-div.output_html { font-family: sans-serif; }
+div.output_html { font-family: "SF Pro Display"; }
 
 /*
   Set colors and styles that we only want on the screen, not for print
@@ -333,10 +286,7 @@ div.output_html { font-family: sans-serif; }
   
   .notebook_app div.input_prompt {color: #3cba54;}
   .notebook_app div.output_prompt {color: #9b859d;}
-  .notebook_app div.input_area {
-    border-radius: 0px;
-    border: 1px solid #000000;
-  }
+  .notebook_app div.input_area {border-radius: 0px; border: 1px solid #000000;}
   .notebook_app div.output_subarea { max-width: 100%; }
   .notebook_app div.output_area pre { font-weight: normal; color: #dfdfdf; }
   .notebook_app div.output_subarea { font-weight: normal; color: #dfdfdf; }
@@ -347,8 +297,8 @@ div.output_html { font-family: sans-serif; }
     border: 1px  #979797 solid;
     color: #979797;
   }
-  .notebook_app div.text_cell_render, .notebook_app div.output_html { color: #979797; }
-  .notebook_app table.dataframe tr { border: 1px #979797; }
+  .notebook_app div.text_cell_render, .notebook_app div.output_html { color: #dfdfdf; }
+  .notebook_app table.dataframe tr { border: 1px #dfdfdf; }
   .notebook_app div.jupyter-widgets { color : #eee !important;} 
   .notebook_app .rendered_html pre, .notebook_app .rendered_html code {
     border: 0;
@@ -363,12 +313,12 @@ div.output_html { font-family: sans-serif; }
 */
 
 span.ansiblack {color: #000000;}
-span.ansiblue {color: #0091ea;}
-span.ansigray {color: #838184;}
-span.ansigreen {color: #1ebf3d;}
-span.ansipurple {color: #9b859d;}
-span.ansired {color: #cf6a4c;}
-span.ansiyellow {color: #f9ee98;}
+span.ansiblue {color: #53bdfa;}
+span.ansigray {color: #767676;}
+span.ansigreen {color: #1ebf3c;}
+span.ansipurple {color: #8e8ff0;}
+span.ansired {color: #970404;}
+span.ansiyellow {color: #ffc107;}
 
 /*
   Code editing
@@ -379,11 +329,9 @@ div.CodeMirror-selected {background: rgba(221, 240, 255, 0.19) !important;}
 #texteditor-backdrop #texteditor-container .CodeMirror-gutter, .CodeMirror-gutters {background: #000; border-right: 0px; color: #777;}
 .CodeMirror-linenumber {color: #323232}
 .CodeMirror-cursor {border-left: 1px solid #A7A7A7 !important; margin-top: -2px; min-height: 18px;} 
-
 .CodeMirror span.cm-comment {color: #5F5A60; font-style: italic;}
 .CodeMirror span.cm-atom {color: #CF6A4C;}
 .CodeMirror span.cm-number {color: #CF6A4C;}
-
 .CodeMirror span.cm-property {color: #0091ea;}
 .CodeMirror span.cm-attribute {color: #198844;}
 .CodeMirror span.cm-keyword {color: #3cba54; font-weight: normal;}
@@ -391,8 +339,7 @@ div.CodeMirror-selected {background: rgba(221, 240, 255, 0.19) !important;}
 .CodeMirror span.cm-string-2 {color: #E9C062;} /* regexp */
 .CodeMirror span.cm-operator {color: #ffc107;}
 .CodeMirror span.cm-builtin {color: #A36AC7;}
-
-.CodeMirror span.cm-variable {color: #F8F8F8;}
+.CodeMirror span.cm-variable {color: #E8EAF6;} /* the general color */
 .CodeMirror span.cm-variable-2 {color: #7587A6;}
 .CodeMirror span.cm-variable-3 {color: #7587A6;}
 .CodeMirror span.cm-def {color: #f4c20d;}
@@ -400,13 +347,12 @@ div.CodeMirror-selected {background: rgba(221, 240, 255, 0.19) !important;}
 .CodeMirror span.cm-bracket {color: #373b41;}
 .CodeMirror span.cm-tag {color: #7587A6;}
 .CodeMirror span.cm-link {color: #A36AC7;}
-
-.CodeMirror .CodeMirror-matchingbracket { background-color: #dd3; color: #303030 !important;}
+.CodeMirror .CodeMirror-matchingbracket { background-color: #263238; color: #FAFAFA !important;}
 
 /*
   Markdown editing
 */
 
-.cm-s-default span.cm-header {color: #CF4A4C;}
+.cm-s-default span.cm-header {color: #5C6BC0;}
 .cm-s-default span.cm-variable-2 {color: #7587A6;}
 .cm-s-default span.cm-comment {color: #7F7A80;}
