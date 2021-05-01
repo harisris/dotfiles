@@ -154,7 +154,6 @@ let g:vim_markdown_math          = 1
 let g:tex_flavor                 = 'latex'
 
 " NerdCommenter
-
 let g:NERDSpaceDelims            = 1 					  " Spaces after delimiters
 let g:NERDCompactSexyComs        = 1 			   " Compact syntax for multi-line comments
 let g:NERDDefaultAlign           = 'left' 		       " Align line-wise comment delimiters
@@ -285,7 +284,8 @@ set noshowmode
 
 " Airline"
 let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='badwolf'
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme='transparent'
 let g:airline_powerline_fonts=0
 set laststatus=2
 
