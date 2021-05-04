@@ -37,6 +37,7 @@ Plug 'godlygeek/tabular' 					 "Allign text between char. Eg. ':'
 Plug 'haya14busa/incsearch.vim' 					 "Incremental Search Helper
 Plug 'junegunn/vim-emoji' 						"Emoji functionality in Vim
 Plug 'rhysd/accelerated-jk' 							"As the name says..
+" Plug 'wfxr/minimap.vim'
 
 " Class/Function Tags
 Plug 'majutsushi/tagbar'
@@ -161,8 +162,8 @@ let g:NERDCommentEmptyLines      = 1 		       " Allow commenting and inverting e
 let g:NERDTrimTrailingWhitespace = 1 		" Trimming of trailing whitespace when uncommenting
 
 " Linting
-let g:ale_sign_error = emoji#for('cry')
-let g:ale_sign_warning = emoji#for('grey_question')
+let g:ale_sign_error = emoji#for('eyes')
+let g:ale_sign_warning = emoji#for('black_circle')
 let g:ale_sign_column_always = 1
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
@@ -279,7 +280,7 @@ let g:UltiSnipsJumpBackwardTrigger       = "<c-z>"
 let g:UltiSnipsEditSplit                 = "vertical"
 
 " Eyecandy
-colorscheme rt_goo_modified
+colorscheme rt_goo_modified_blue
 set noshowmode
 
 " Airline"
@@ -288,6 +289,11 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='transparent'
 let g:airline_powerline_fonts=0
 set laststatus=2
+
+" minimap
+"let g:minimap_width = 10
+"let g:minimap_auto_start = 1
+"let g:minimap_auto_start_win_enter = 1
 
 " --- Crossplatform configuration ------------------ "
 

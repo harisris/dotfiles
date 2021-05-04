@@ -1,30 +1,32 @@
 # Oh My Zsh!
-export ZSH=/Users/srihari/.oh-my-zsh
+export ZSH=/Users/rt/.oh-my-zsh
 ZSH_THEME="harisris"
 plugins=(git 
 	 colorize 
 	 cp
 	 emoji
-	 k
 	 history 
 	 history-substring-search 
 	 common-aliases 
 	 zsh-autosuggestions 
 	 fast-syntax-highlighting 
 	 zsh-completions 
-	 zsh-syntax-highlighting 
-	 zsh-iterm-touchbar) 
+	 zsh-syntax-highlighting) 
 
 source $ZSH/oh-my-zsh.sh
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"
+
 
 # Aliases
 alias brwe=brew
+alias cd=z
 alias cpwd="pwd | tr -d '\n' | pbcopy && echo 'pwd copied to clipboard.'"
 alias {cim,vim,nv}=nvim
 alias nvn='nvim ~/.vimrc'
 alias nvz='nvim ~/.zshrc'
 alias nva='nvim ~/.alacritty.yml'
-alias l='exa -rbhHl --sort=size'
+alias l='exa -rmhbHl --sort=accessed --no-permissions --no-user --color-scale'
 alias cl='clear'
 alias sz='source ~/.zshrc'
 alias lt='exa -rbghHlST --sort=size'
@@ -33,6 +35,8 @@ alias du=dust
 alias yabr='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 alias k='k --no-vcs'
 alias ydla='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
+alias f='fzf --preview "bat --color \"always\" {}"'
+alias fu='fuck'
 
 #ml
 alias jnch_custom_css="mv ${HOME}/.jupyter/custom/custom.css.goo ${HOME}/.jupyter/custom/custom.css"
@@ -87,15 +91,14 @@ export LANG=en_US.UTF-8
 export PYTHONSTARTUP=~/.pythonrc
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 export ZSH_COLORIZE_STYLE="vim"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#79797D,bg=#000000"
-#export MANPAGER="nvim -c 'set ft=man' -"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#79797D,bg=#040a12"
 export PAGER="nvim +Man!"
-#export MANPAGER="/usr/local/bin/most -s"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/python/libexec/bin:/usr/local/go/bin:~/shelf:/usr/local/lib:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH" #Hail the supreme leader pyenv. We bow down before your might.
 export PYTHONPATH="${PYTHONPATH}:/Users/srihari/shelf"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" #Homebrew asked me to
 
 # Environment Enhancement
 
